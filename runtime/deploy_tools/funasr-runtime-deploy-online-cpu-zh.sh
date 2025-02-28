@@ -27,8 +27,8 @@ SUDO_CMD="sudo"
 
 
 DEFAULT_DOCKER_ONLINE_CPU_ZH_LISTS_OSS="https://isv-data.oss-cn-hangzhou.aliyuncs.com/ics/MaaS/ASR/docker_lists/docker_online_cpu_zh_lists"
-DEFAULT_DOCKER_ONLINE_CPU_ZH_LISTS_GIT="https://raw.githubusercontent.com/alibaba-damo-academy/FunASR/main/runtime/docs/docker_online_cpu_zh_lists"
-DEFAULT_DOCKER_IMAGE_LISTS=$DEFAULT_DOCKER_ONLINE_CPU_ZH_LISTS_OSS
+DEFAULT_DOCKER_ONLINE_CPU_ZH_LISTS_GIT="https://raw.githubusercontent.com/MartinDong/FunASR/main/runtime/docs/docker_online_cpu_zh_lists"
+DEFAULT_DOCKER_IMAGE_LISTS=$DEFAULT_DOCKER_ONLINE_CPU_ZH_LISTS_GIT
 DEFAULT_FUNASR_DOCKER_URL="registry.cn-hangzhou.aliyuncs.com/funasr_repo/funasr"
 DEFAULT_FUNASR_RUNTIME_RESOURCES="funasr-runtime-resources"
 DEFAULT_FUNASR_LOCAL_WORKSPACE=${CUR_DIR}/${DEFAULT_FUNASR_RUNTIME_RESOURCES}
@@ -390,11 +390,11 @@ readDockerInfoFromUrl(){
             echo -e "    ${RED}Unable to get docker image list due to network issues, try again.${PLAIN}"
 
             # switch sources of docker image lists
-            if [ "$list_url" = "$DEFAULT_DOCKER_ONLINE_CPU_ZH_LISTS_OSS" ]; then
-                DEFAULT_DOCKER_IMAGE_LISTS=$DEFAULT_DOCKER_ONLINE_CPU_ZH_LISTS_GIT
-            else
-                DEFAULT_DOCKER_IMAGE_LISTS=$DEFAULT_DOCKER_ONLINE_CPU_ZH_LISTS_OSS
-            fi
+            # if [ "$list_url" = "$DEFAULT_DOCKER_ONLINE_CPU_ZH_LISTS_OSS" ]; then
+            #     DEFAULT_DOCKER_IMAGE_LISTS=$DEFAULT_DOCKER_ONLINE_CPU_ZH_LISTS_GIT
+            # else
+            #     DEFAULT_DOCKER_IMAGE_LISTS=$DEFAULT_DOCKER_ONLINE_CPU_ZH_LISTS_OSS
+            # fi
         fi
     done
     array=($(echo "$content"))
